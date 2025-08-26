@@ -1,0 +1,62 @@
+{
+  "name": "any-country-phone",
+  "version": "0.1.1",
+  "description": "Global phone number utils (parse, validate, format, mask, detect) + a tiny React input component.",
+  "keywords": [
+    "phone",
+    "international",
+    "validation",
+    "format",
+    "mask",
+    "react"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/PhoneInput.d.ts",
+      "import": "./dist/react/PhoneInput.js",
+      "require": "./dist/react/PhoneInput.cjs"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "libphonenumber-js": "^1.11.7"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^18.3.5",
+    "jsdom": "^26.1.0",
+    "tsup": "^8.1.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.2"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/yourname/any-country-phone",
+  "author": "Your Name <you@example.com>",
+   "vitest": {
+    "environment": "jsdom",
+    "setupFiles": ["tests/setup.ts"]
+  }
+}
