@@ -10,7 +10,6 @@ export default defineConfig([
     target: 'es2021'
   },
   {
-    // React subpath build (optional)
     entry: { 'react/PhoneInput': 'src/react/PhoneInput.tsx' },
     format: ['esm', 'cjs'],
     dts: true,
