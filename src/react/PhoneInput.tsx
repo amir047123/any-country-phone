@@ -3,7 +3,7 @@ import { detectCountry, validate, mask, format, getDialCode } from '../core';
 
 export type PhoneInputProps = {
   value?: string;
-  country?: string;                 // lock to a country (e.g., "BD", "IT", "US") — optional
+  country?: string;               
   onChange?: (val: string) => void;
   onValidChange?: (valid: boolean, e164?: string, country?: string) => void;
   placeholder?: string;
