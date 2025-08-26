@@ -1,0 +1,11 @@
+# exclude from npm
+src/
+tests/
+vitest.config.ts
+tsup.config.ts
+tsconfig.json
+.eslintrc*
+.prettierrc*
+.github/
+node_modules/
+coverage/

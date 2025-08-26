@@ -8,12 +8,10 @@ export type ValidateResult =
 
 export function detectCountry(input: string): string | null {
   const s = input.trim();
-  // Try by explicit + code first
   if (s.startsWith('+')) {
     const parsed = parsePhoneNumberFromString(s);
     return parsed?.country ?? null;
   }
-  // Without +, still try to parse (may infer from default/ambiguous)
   const p = parsePhoneNumberFromString(s);
   return p?.country ?? null;
 }
@@ -39,7 +37,7 @@ export function format(input: string, style: FormatStyle = 'international', coun
   if (!parsed) return input;
 
   switch (style) {
-    case 'E164': return parsed.number; // +XXXXXXXX
+    case 'E164': return parsed.number;
     case 'international': return parsed.formatInternational();
     case 'national': return parsed.formatNational();
   }
@@ -53,25 +51,17 @@ export function parse(input: string) {
     e164: p.number,
     national: p.formatNational(),
     international: p.formatInternational(),
-    type: p.getType?.() // mobile/fixed_line/etc (if available)
+    type: p.getType?.()
   };
 }
 
-/** Lightweight typing mask:
- *  - preserves leading '+'
- *  - inserts spaces for readability while typing
- *  - once a valid number is reached, prefer lib formatInternational()
- */
 export function mask(raw: string): string {
   const str = raw.replace(/[^\d+]/g, '');
-  // if already parsable, show pretty format
   const p = parsePhoneNumberFromString(str);
   if (p) return p.formatInternational();
 
-  // naive spacing for partially typed input
   const plus = str.startsWith('+') ? '+' : '';
   const digits = str.replace(/\D/g, '');
-  // group into chunks: +XXX XXX XXX XXXX …
   const groups: string[] = [];
   for (let i = 0; i < digits.length; i += 3) groups.push(digits.slice(i, i + 3));
   return plus + groups.join(' ');

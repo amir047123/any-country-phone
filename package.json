@@ -1,6 +1,6 @@
 {
   "name": "any-country-phone",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Global phone number utils (parse, validate, format, mask, detect) + a tiny React input component.",
   "keywords": [
     "phone",
@@ -53,8 +53,11 @@
     "vitest": "^2.1.2"
   },
   "license": "MIT",
-  "repository": "https://github.com/yourname/any-country-phone",
-  "author": "Your Name <you@example.com>",
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/amir047123/any-country-phone.git"
+},
+"author": "Amir Faysal <amir047123@gmail.com>",
    "vitest": {
     "environment": "jsdom",
     "setupFiles": ["tests/setup.ts"]
